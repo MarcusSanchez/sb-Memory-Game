@@ -1,33 +1,63 @@
-const gameContainer = document.getElementById("game");
+let matches = 15;
+let score = 0;
+let openedColors = [];
 
-const COLORS = [
-  "red",
-  "blue",
-  "green",
-  "orange",
-  "purple",
-  "red",
-  "blue",
-  "green",
-  "orange",
-  "purple"
-];
+let colors = []
+for (let i = 0; i < 15; i++) {
+  let color = generateRGB();
+  colors.push(color, color);
+}
+colors = shuffle(colors);
 
-// here is a helper function to shuffle an array
-// it returns the same array with values shuffled
-// it is based on an algorithm called Fisher Yates if you want to research more
+const colorBoxes = document.querySelectorAll('.color');
+for (let colorBox of colorBoxes) {
+  colorBox.setAttribute('data-color', colors.pop());
+  colorBox.addEventListener('click', handler)
+  function handler() {
+    if (openedColors.length === 1 && colorBox === openedColors[0].colorBox) {
+      return;
+    }
+    let color = colorBox.getAttribute('data-color');
+    score++;
+    document.querySelector('#score').innerHTML = `Score: ${score.toString()}`;
+    if (openedColors.length === 0) {
+      colorBox.style.backgroundColor = color;
+      openedColors.push({colorBox, color})
+    } else if (openedColors.length === 1) {
+      colorBox.style.backgroundColor = color;
+      let prevColor = openedColors.pop();
+      if (!(prevColor.color === color)) {
+        setTimeout(() => {
+          prevColor.colorBox.style.backgroundColor = 'grey';
+          colorBox.style.backgroundColor = 'grey';
+        }, 500);
+        return;
+      }
+      matches--;
+      colorBox.removeEventListener('click', handler);
+      prevColor.colorBox.removeEventListener('click', handler);
+      if (matches === 0) {
+        alert(`You won with a score of ${score}!`);
+        location.reload();
+      }
+    }
+  }
+}
+
+function generateRGB() {
+  const r = Math.floor(Math.random() * 256)
+  const g = Math.floor(Math.random() * 256)
+  const b = Math.floor(Math.random() * 256)
+
+  return `rgb(${r}, ${g}, ${b})`
+}
+
 function shuffle(array) {
   let counter = array.length;
 
-  // While there are elements in the array
   while (counter > 0) {
-    // Pick a random index
     let index = Math.floor(Math.random() * counter);
-
-    // Decrease counter by 1
     counter--;
-
-    // And swap the last element with it
     let temp = array[counter];
     array[counter] = array[index];
     array[index] = temp;
@@ -36,32 +66,4 @@ function shuffle(array) {
   return array;
 }
 
-let shuffledColors = shuffle(COLORS);
-
-// this function loops over the array of colors
-// it creates a new div and gives it a class with the value of the color
-// it also adds an event listener for a click for each card
-function createDivsForColors(colorArray) {
-  for (let color of colorArray) {
-    // create a new div
-    const newDiv = document.createElement("div");
-
-    // give it a class attribute for the value we are looping over
-    newDiv.classList.add(color);
-
-    // call a function handleCardClick when a div is clicked on
-    newDiv.addEventListener("click", handleCardClick);
-
-    // append the div to the element with an id of game
-    gameContainer.append(newDiv);
-  }
-}
-
-// TODO: Implement this function!
-function handleCardClick(event) {
-  // you can use event.target to see which element was clicked
-  console.log("you just clicked", event.target);
-}
-
-// when the DOM loads
-createDivsForColors(shuffledColors);
+console.log(colors);

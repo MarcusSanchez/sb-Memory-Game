@@ -1,7 +1,35 @@
-#game div {
-  border: 1px solid black;
-  width: 15%;
-  height: 200px;
-  margin: 10px;
-  display: inline-block;
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#sidepanel {
+  width: 20%;
+  padding-left: 20px;
+}
+
+#game {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 15%;
+  row-gap: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 19%;
+  height: 15vh;
+}
+
+.color {
+  background-color: grey;
+  border: 2px solid black;
+  border-radius: 5px;
+  height: 100px;
+  width: 100px;
+  transition: background-color 0.5s ease;
 }
