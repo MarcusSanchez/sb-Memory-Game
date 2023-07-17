@@ -61,7 +61,7 @@ function start(e) {
         prevColor.colorBox.removeEventListener('click', handler);
         if (matches === 0) {
           alert(`You won with a score of ${score}!`);
-          if (lowestScore > score) {
+          if (lowestScore === 0 || lowestScore > score) {
             localStorage.setItem('lowestScore', score);
             document.querySelector('#lowest-score').innerHTML = `Lowest Score: ${score.toString()}`;
           }
@@ -142,7 +142,6 @@ function closestMultipliers(n) {
   let product = lower * upper;
 
   while (product !== n) {
-    console.log('running');
     if (product < n) {
       upper++;
     } else {
