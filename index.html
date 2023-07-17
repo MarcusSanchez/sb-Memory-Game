@@ -6,102 +6,20 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <section id="sidepanel">
-    <h1>Memory Game!</h1>
+  <section id="side-panel">
+    <div id="nav">
+      <h1>Memory Game!</h1>
+      <h1 id="lowest-score">Lowest Score: 0</h1>
+    </div>
     <h1 id="score">Score: 0</h1>
+    <form>
+      <label for="board-size">Board Size:</label>
+      <input type="text" id="board-size" placeholder="Enter an even number..."/>
+      <button id="start-button" type="submit">Start Game</button>
+    </form>
   </section>
-  <div id="game">
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-    <div class="container">
-      <div class="color"></div>
-    </div>
-  </div>
+  <div id="game"></div>
+
   <script src="script.js"></script>
 </body>
 </html>

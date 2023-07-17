@@ -2,34 +2,75 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  background-color: #4e4069;
 }
 
-#sidepanel {
+#side-panel {
   width: 20%;
+  padding-right: 20px;
+  border-right: #000 2px solid;
+  background-color: #beb3b3;
+  height: 100vh;
+}
+
+#nav {
+  border-bottom: black solid 2px;
   padding-left: 20px;
+  width: 100%;
+}
+
+#score {
+  padding-left: 20px;
+  border-bottom: black solid 2px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+input {
+  width: 50%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px black solid;
+}
+
+#start-button {
+  padding: 3px;
+  border-radius: 5px;
+  border: 2px black solid;
+  width: 25%;
 }
 
 #game {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
-  margin: 0 15%;
-  row-gap: 20px;
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 19%;
+  width: 20%;
   height: 15vh;
 }
 
 .color {
-  background-color: grey;
+  background-color: #beb3b3;
   border: 2px solid black;
   border-radius: 5px;
-  height: 100px;
-  width: 100px;
+  height: 80%;
+  width: 40%;
   transition: background-color 0.5s ease;
 }
